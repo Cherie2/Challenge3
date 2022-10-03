@@ -1,83 +1,90 @@
-  //Variables to be used as options for possible password depending on chosen included characters
-  var charsNum = ["0","1","2","3","4","5","6","7","8","9"];
-  var charsLower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  var charsUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  var charsSpecial = ["!","@","#","$","%","^","&","*","(",")"];
+//Variables that include optional characters to be used for password
+  var charsNum = 1234567890;
+  var charsLower = "abcdefghijklmnopqrstuvwxyz";
+  var charsUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var charsSpecial = "!#$%&()*+,-./:;<=>?@[]^_{|}~";
  
-  var passwordCharsOptions = [
-    charsNum, 
-    charsLower, 
-    charsUpper, 
-    charsSpecial];
-// Assignment Code
-  var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-//variables to include the options for characters to be included in the password and its length
-  var passwordLength = prompt("How long of a password would you like?");
-  var includeCharsNum = confirm("Would you like Numeric Characacters included?");
-  var includeCharsLower = confirm("Would you like Lowercase Characacters included?");
-  var includeCharsUpper = confirm("Would you like Uppercase Characacters included?");
-  var includeCharsSpecial = confirm("Would you like Special Characacters included?");
-
-  var charsOptions = [
-    passwordLength,
-    includeCharsNum,
-    includeCharsLower,
-    includeCharsUpper,
-    includeCharsSpecial,
-  ];
-//Password length requirements
-   if(charsOptions[0]){
-    input.minimumlength >= 8;
-    maximumlength <= 128  
-   }
-     
   var password = [];
-//Function used to randomize the selected types of characters for password
-  function selectRandomChar(array){
-    var randomNumber = Math.floor(Math.random() * array.Length);
+  var isCharsNum, isCharsLower, isCharsUpper, isCharsSpecial;
+  var passwordLength;
 
-    if(includeCharsNum){
-      passwordCharsOptions = passwordCharsOptions.concat(charsNum)
-      password.push(selectRandomChar(charsNum));
-    }
+//Added event listener to generate button
+  var generateBtn = document.querySelector("#generate");
+  generateBtn.addEventListener("click", writePassword); 
 
-    if(includeCharsLower){
-      passwordCharsOptions = passwordCharsOptions.concat(charsLower)
-      password.push(selectRandomChar(charsLower));
-    }
+//Window prompts/alerts/confirms after generate button is clicked, asking password length and which character types to include in password
+function writePassword() {
 
-     if(includeCharsUpper){
-      passwordCharsOptions = passwordCharsOptions.concat(charsUpper)
-      password.push(selectRandomChar(charsUpper));
-    }
+  passwordLength = window.prompt("How long of a password would you like?");
 
-     if(includeCharsSpecial){
-      passwordCharsOptions = passwordCharsOptions.concat(charsSpecial)
-      password.push(selectRandomChar(charsSpecial));
-    }  
-    return array[randomNumber];
+//Password length requirements
+   if(passwordLength >= 8 && passwordLength <= 128) {
+     window.confirm("Your password is " + passwordLength + " characters long ")
+   } else {
+  window.alert("Password length must be a minimum of 8 characters and maximum of 128 characters ")
+   }
   
-  }};
-  writePassword();
+  isCharsNum = window.confirm("Would you like Numeric Characters included?");
 
-  var password = generatePassword();
-  
-  var remainingChars = charsOptions.length - password.length
-  var passwordText = document.querySelector("#password");
- 
- for (var i = 0; i > remainingChars; i++) {
-    var randomChar = selectRandomChar(passwordCharsOptions);
-    password.push(randomChar);
-    passwordText.value = password;
-   // return(password);
-  };
+   if(isCharsNum) {
+    window.alert("Your password will include Numbers")
+   } else {
+    window.alert("Your password will not include Numbers")
+   }
 
+  isCharsLower = window.confirm("Would you like Lowercase Characters included?");
+   
+   if(isCharsLower) {
+    window.alert("Your password will include Lowercase Characters")
+   } else {
+    window.alert("Your password will not include Lowercase Characters")
+   }
 
+  isCharsUpper = window.confirm("Would you like Uppercase Characters included?");
+   
+   if(isCharsUpper) {
+    window.alert("Your password will include Uppercase Characters")
+   } else {
+    window.alert("Your password will not include uppercase Characters")
+   }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword); 
-{alert(password)};
+  isCharsSpecial = window.confirm("Would you like Special Characters included?");
+   
+   if(isCharsSpecial) {
+    window.alert("Your password will include Special Characters")
+   } else {
+    window.alert("Your password will not include Special Characters")
+   }
+
+if((isCharsLower || isCharsNum || isCharsSpecial || isCharsUpper) && (passwordLength >=8 && passwordLength <= 128 )
+) {
+  generatePassword();
+} else {
+  window.alert ("Minimum requirements not met. Must choose at least one character type and password length must be 8-128 characters.")
+}
+  };  
+
+//Concats and sends selected character types to getPassword empty string
+  var generatePassword = function() {
+    var getPassword = ""
+    if(isCharsNum) {
+      password += charsNum
+    }
+    if(isCharsLower) {
+      password += charsLower
+    }
+    if(isCharsUpper) {
+      password += charsUpper
+    }
+    if(isCharsSpecial) {
+      password += charsSpecial
+    }
+//Randomizes the chosen character types for password 
+    for( i=0; i <= passwordLength; i++) {
+      getPassword += password.charAt(Math.floor(Math.random() * password.length));
+    }
+// Write password to the #password input-Places password into text area box
+    var passwordText = document.querySelector("#password");
+    passwordText.value = getPassword;
+  }
 
