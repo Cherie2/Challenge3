@@ -6,7 +6,10 @@ The motivation for this project is to create a password generator utilizing Java
 
 In completing this project I have learned the fundamentals of Javascript; including the use of variables, functions, for loops, and event listeners. 
 
+
 ![Password Generator Website](./assets/images/cherie2.github.io_Password-Generator-Javascript_.png)
+
+https://cherie2.github.io/Password-Generator-Javascript/
 
 ## Tools Utilized
 
@@ -28,6 +31,8 @@ In order to utilize the website, the user needs access to a web browser.
 ## Usage
 
 To take advantage of this website's services, follow the prompts and decide what characters are desired in password as well as the length. The password will then be displayed inside the generator box. 
+
+https://cherie2.github.io/Password-Generator-Javascript/
 
 ## Credits
 
