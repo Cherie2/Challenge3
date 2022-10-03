@@ -6,11 +6,7 @@ The motivation for this project is to create a password generator utilizing Java
 
 In completing this project I have learned the fundamentals of Javascript; including the use of variables, functions, for loops, and event listeners. 
 
-![alt text](assets/images/screenshot.png)
-
-## Features
-
-If your project has a lot of features, list them here.
+![Password Generator Website](./assets/images/cherie2.github.io_Password-Generator-Javascript_.png)
 
 ## Tools Utilized
 
@@ -44,12 +40,6 @@ Resources of significance:
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 
 Special thanks to Ileriayo Adebiyi https://github.com/Ileriayo/markdown-badges#testing for his public library of common badges
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
 
 ## License
 
